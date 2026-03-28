@@ -3,24 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Start Smart</title>
 
 <style>
 
-body{
+*{
 margin:0;
-font-family:Arial;
+padding:0;
+box-sizing:border-box;
+font-family:Cairo, sans-serif;
+}
+
+body{
+background:#0f172a;
+color:white;
 direction:rtl;
 }
 
-/* الهيدر */
+/* Navbar */
 
-.header{
-background-image:url('cover.jpg');
-background-size:cover;
-background-position:center;
-height:100vh;
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px;
+background:#020617;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+color:#3b82f6;
+}
+
+nav ul{
+display:flex;
+gap:20px;
+list-style:none;
+}
+
+nav a{
 color:white;
+text-decoration:none;
+}
+
+/* Hero */
+
+.hero{
+height:80vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
@@ -28,38 +62,115 @@ align-items:center;
 text-align:center;
 }
 
-.overlay{
-background:rgba(0,0,0,0.6);
-width:100%;
-height:100%;
-position:absolute;
-top:0;
-left:0;
-}
-
-.content{
-position:relative;
-z-index:2;
-}
-
-h1{
-font-size:50px;
-margin:10px;
-}
-
-p{
-font-size:20px;
+.hero h1{
+font-size:40px;
+margin-bottom:10px;
 }
 
 .btn{
+background:#3b82f6;
 padding:12px 25px;
-margin:10px;
+border-radius:8px;
 border:none;
-background:gold;
-color:black;
+color:white;
 cursor:pointer;
-font-size:16px;
-border-radius:5px;
+}
+
+/* خدمات شريط متحرك */
+
+.scroll-services{
+background:#020617;
+padding:15px;
+overflow:hidden;
+white-space:nowrap;
+}
+
+.scroll-services span{
+margin-left:40px;
+animation:scroll 20s linear infinite;
+display:inline-block;
+}
+
+@keyframes scroll{
+0%{transform:translateX(100%)}
+100%{transform:translateX(-100%)}
+}
+
+/* خدمات */
+
+.services{
+padding:60px;
+text-align:center;
+}
+
+.cards{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+justify-content:center;
+}
+
+.card{
+background:#020617;
+padding:25px;
+border-radius:10px;
+width:250px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+/* دول */
+
+.countries{
+display:none;
+padding:40px;
+text-align:center;
+}
+
+/* عن الشركة */
+
+.about{
+padding:60px;
+background:#020617;
+text-align:center;
+}
+
+/* اسعار */
+
+.pricing{
+padding:60px;
+text-align:center;
+}
+
+.price-card{
+background:#020617;
+padding:30px;
+border-radius:10px;
+width:250px;
+}
+
+/* تواصل */
+
+.contact{
+padding:60px;
+text-align:center;
+}
+
+/* موبايل */
+
+@media(max-width:768px){
+
+nav ul{
+display:none;
+}
+
+.hero h1{
+font-size:25px;
+}
+
 }
 
 </style>
@@ -68,219 +179,77 @@ border-radius:5px;
 
 <body>
 
-<div class="header">
+<nav>
 
-<div class="content">
+<div class="logo">Start Smart</div>
+
+<ul>
+<li><a href="#">الرئيسية</a></li>
+<li><a href="#" onclick="showServices()">الخدمات</a></li>
+<li><a href="#">عن الشركة</a></li>
+<li><a href="#">تواصل</a></li>
+</ul>
+
+</nav>
+
+<section class="hero">
 
 <h1>Start Smart</h1>
+<p>منصة ريادة الأعمال الذكية</p>
 
-<p>رؤية تنموية في مجال ريادة الأعمال</p>
+<button class="btn" onclick="showServices()">خدماتنا</button>
 
-<button class="btn">الخدمات</button>
-<button class="btn">تواصل معنا</button>
+</section>
+
+<div class="scroll-services">
+
+<span>
+
+تأسيس شركات - استشارات أعمال - تسويق إلكتروني - تصميم مواقع - استشارات ضريبية - هيكلة الشركات
+
+</span>
 
 </div>
-<!-- قسم الخدمات -->
+
 <section class="services">
 
 <h2>خدماتنا</h2>
 
-<div class="services-box">
+<div class="cards">
 
 <div class="card">
 <h3>تأسيس شركات</h3>
-<p>تأسيس شركتك في مصر والإمارات والسعودية</p>
-<button class="btn">اختار خدمتك</button>
 </div>
 
 <div class="card">
 <h3>استشارات أعمال</h3>
-<p>تحليل مشروعك ووضع خطة نمو احترافية</p>
-<button class="btn">اختار خدمتك</button>
 </div>
 
 <div class="card">
 <h3>تسويق إلكتروني</h3>
-<p>إدارة الحملات الإعلانية والتسويق الرقمي</p>
-<button class="btn">اختار خدمتك</button>
 </div>
 
 <div class="card">
 <h3>تصميم مواقع</h3>
-<p>تصميم مواقع احترافية متوافقة مع جميع الأجهزة</p>
-<button class="btn">اختار خدمتك</button>
 </div>
 
 <div class="card">
 <h3>استشارات ضريبية</h3>
-<p>حلول ضريبية للشركات ورواد الأعمال</p>
-<button class="btn">اختار خدمتك</button>
 </div>
 
 <div class="card">
-<h3>هيكلة الشركات</h3>
-<p>إعادة تنظيم وهيكلة الشركات</p>
-<button class="btn">اختار خدمتك</button>
+<h3>هيكلة شركات</h3>
 </div>
 
 </div>
 
 </section>
 
-
-<!-- قسم عن الشركة -->
-
-<section class="about">
-
-<div class="about-content">
-
-<div class="about-text">
-
-<h2>عن Start Smart</h2>
-
-<p>
-نحن شركة متخصصة في خدمات ريادة الأعمال وتأسيس الشركات 
-نساعد رواد الأعمال على تحويل أفكارهم إلى مشاريع ناجحة 
-من خلال تقديم خدمات احترافية متكاملة
-</p>
-
-<button class="btn">اقرأ المزيد</button>
-
-</div>
-
-<div class="about-image">
-<img src="about.jpg" alt="">
-</div>
-
-</div>
-
-</section>
-.services{
-padding:50px;
-text-align:center;
-background:#f5f5f5;
-}
-
-.services-box{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-}
-
-.card{
-background:white;
-padding:20px;
-width:250px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-}
-
-.about{
-padding:50px;
-background:#111;
-color:white;
-}
-
-.about-content{
-display:flex;
-align-items:center;
-justify-content:center;
-flex-wrap:wrap;
-}
-
-.about-text{
-width:400px;
-padding:20px;
-}
-
-.about-image img{
-width:400px;
-border-radius:10px;
-}
-about.jpg
-<!-- خطط الأسعار -->
-<section class="payment">
-
-<h2>طرق الدفع</h2>
-
-<div class="services-box">
-
-<div class="card">
-<h3>فودافون كاش</h3>
-<p>الدفع عبر فودافون كاش</p>
-</div>
-
-<div class="card">
-<h3>حساب بنكي</h3>
-<p>تحويل بنكي مباشر</p>
-</div>
-
-<div class="card">
-<h3>انستا باي</h3>
-<p>الدفع عبر InstaPay</p>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- تواصل معنا -->
-
-<section class="contact">
-
-<h2>تواصل معنا</h2>
-
-<div class="contact-box">
-
-<input type="text" placeholder="اسمك">
-<input type="text" placeholder="رقم الهاتف">
-<input type="text" placeholder="الفيسبوك">
-<input type="text" placeholder="واتساب">
-
-<button class="btn">إرسال</button>
-
-</div>
-
-</section>
-.plans{
-padding:50px;
-text-align:center;
-background:#f5f5f5;
-}
-
-.payment{
-padding:50px;
-text-align:center;
-background:#111;
-color:white;
-}
-
-.contact{
-padding:50px;
-text-align:center;
-}
-
-.contact-box{
-display:flex;
-flex-direction:column;
-width:300px;
-margin:auto;
-gap:10px;
-}
-
-input{
-padding:10px;
-border-radius:5px;
-border:1px solid #ccc;
-}
-<!-- قسم الدول -->
 <section class="countries" id="countries">
 
-<h2>تأسيس الشركات</h2>
+<h2>اختر الدولة</h2>
 
-<div class="services-box">
+<div class="cards">
 
 <div class="card">مصر</div>
 <div class="card">السعودية</div>
@@ -295,514 +264,71 @@ border:1px solid #ccc;
 </div>
 
 </section>
-<button class="btn" onclick="scrollToServices()">الخدمات</button>
-<script>
-function scrollToServices(){
-document.getElementById("countries").scrollIntoView({
-behavior:"smooth"
-});
-}
 
-</script>
-<section class="slider">
-<div class="slide-track">
-<div class="slide">تأسيس شركات</div>
-<div class="slide">استشارات أعمال</div>
-<div class="slide">تسويق إلكتروني</div>
-<div class="slide">تصميم مواقع</div>
-<div class="slide">استشارات ضريبية</div>
-<div class="slide">هيكلة الشركات</div>
+<section class="about">
+
+<h2>عن Start Smart</h2>
+
+<p>
+
+نحن شركة متخصصة في ريادة الأعمال وتأسيس الشركات وتقديم الحلول المتكاملة
+
+</p>
+
+<button class="btn">اقرأ المزيد</button>
+
+</section>
+
+<section class="pricing">
+
+<h2>خطط الأسعار</h2>
+
+<div class="cards">
+
+<div class="price-card">
+
+<h3>تأسيس شركات</h3>
+
+<p>بداية من</p>
+
+<h2>200$</h2>
+
+</div>
+
+<div class="price-card">
+
+<h3>استشارات</h3>
+
+<p>بداية من</p>
+
+<h2>50$</h2>
+
+</div>
 
 </div>
 
 </section>
-.slider{
-background:#000;
-color:white;
-padding:15px;
-overflow:hidden;
-}
 
-.slide-track{
-display:flex;
-animation:scroll 20s linear infinite;
-}
+<section class="contact">
 
-.slide{
-min-width:200px;
-text-align:center;
-}
+<h2>تواصل معنا</h2>
 
-@keyframes scroll{
-0%{transform:translateX(0)}
-100%{transform:translateX(-100%)}
-}
+<p>واتساب : 0100000000</p>
 
-
-/* تحسين الموبايل */
-
-@media(max-width:768px){
-
-h1{
-font-size:30px;
-}
-
-.services-box{
-flex-direction:column;
-align-items:center;
-}
-
-.about-content{
-flex-direction:column;
-}
-
-.about-image img{
-width:100%;
-}
-
-.about-text{
-width:100%;
-}
-
-}
-<!-- زر واتساب -->
-<a href="https://wa.me/201000000000" class="whatsapp" target="_blank">
-💬
-</a>
-01109327472
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-font-size:30px;
-padding:15px;
-border-radius:50%;
-text-decoration:none;
-box-shadow:0 0 10px rgba(0,0,0,0.3);
-z-index:1000;
-}
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-[11:34 ص، 2026/3/28] ⁦+20 12 75168506⁩: <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-[11:34 ص، 2026/3/28] ⁦+20 12 75168506⁩: <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
-body{
-font-family:'Cairo', sans-serif;
-margin:0;
-padding:0;
-}
-<section class="ai-record">
-<h2>تحدث معنا بالذكاء الاصطناعي</h2>
-
-<button onclick="startRecording()" class="btn">
-🎤 تسجيل صوتي
-</button>
-
-<p id="recordingStatus"></p>
+<p>فيس بوك</p>
 
 </section>
+
 <script>
-let recognition;
 
-function startRecording(){
+function showServices(){
 
-recognition = new webkitSpeechRecognition();
-
-recognition.lang = "ar-EG";
-
-recognition.onstart = function(){
-document.getElementById("recordingStatus").innerText="جاري التسجيل...";
-}
-
-recognition.onresult = function(event){
-let text = event.results[0][0].transcript;
-document.getElementById("recordingStatus").innerText=text;
-}
-
-recognition.start();
+document.getElementById("countries").style.display="block"
 
 }
 
 </script>
-admin.html
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>لوحة التحكم</title>
-
-<style>
-
-body{
-font-family:Cairo;
-background:#f5f5f5;
-padding:20px;
-}
-
-.card{
-background:white;
-padding:20px;
-margin:10px 0;
-border-radius:10px;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<h1>لوحة التحكم - Start Smart</h1>
-
-<div class="card">
-<h3>العملاء المسجلين</h3>
-<div id="clients"></div>
-</div>
-
-<div class="card">
-<h3>الخدمات المحجوزة</h3>
-<div id="orders"></div>
-</div>
 
 </body>
 
-</html>
-
-</div>
-<section class="register">
-<h2>تسجيل عميل جديد</h2>
-
-<input type="text" placeholder="الاسم" id="name">
-<input type="email" placeholder="الايميل" id="email">
-
-<button onclick="register()">تسجيل</button>
-
-</section>
-<script>
-function register(){
-
-let name = document.getElementById("name").value
-let email = document.getElementById("email").value
-
-localStorage.setItem(name,email)
-
-alert("تم التسجيل بنجاح")
-
-}
-
-</script>
-<section class="reviews">
-<h2>تقييم العملاء</h2>
-
-<select id="rate">
-<option>⭐</option>
-<option>⭐⭐</option>
-<option>⭐⭐⭐</option>
-<option>⭐⭐⭐⭐</option>
-<option>⭐⭐⭐⭐⭐</option>
-</select>
-
-<button onclick="rate()">إرسال</button>
-
-<div id="ratings"></div>
-
-</section>
-<script>
-function rate(){
-
-let rate = document.getElementById("rate").value
-
-document.getElementById("ratings").innerHTML +=
-"<p>"+rate+"</p>"
-
-}
-
-</script>
-<section>
-<h2>احجز خدمتك</h2>
-
-<select id="service">
-
-<option>تأسيس شركات</option>
-<option>استشارات أعمال</option>
-<option>تمويل</option>
-<option>هيكلة شركات</option>
-<option>خدمة الدكتورة</option>
-
-</select>
-
-<button onclick="book()">احجز</button>
-
-<div id="booking"></div>
-
-</section>
-<script>
-function book(){
-
-let service = document.getElementById("service").value
-
-document.getElementById("booking").innerHTML +=
-"<p>تم حجز : "+service+"</p>"
-
-}
-
-</script>
-<div class="card">
-<h3>خدمة الدكتورة</h3>
-
-<p>استشارات قانونية ومالية متخصصة</p>
-
-<button>احجز الآن</button>
-
-</div>
-background-image:url('cover.jpg');
-<img src="about.jpg">
-<section class="login">
-<h2>تسجيل دخول العملاء</h2>
-
-<input type="text" id="phone" placeholder="رقم الهاتف">
-
-<input type="password" id="password" placeholder="كلمة المرور">
-
-<input type="text" id="commercial" placeholder="رقم السجل التجاري">
-
-<input type="text" id="national" placeholder="الرقم القومي">
-
-<button onclick="login()">تسجيل الدخول</button>
-
-</section>
-<script>
-function login(){
-
-let phone = document.getElementById("phone").value
-let password = document.getElementById("password").value
-let commercial = document.getElementById("commercial").value
-let national = document.getElementById("national").value
-
-if(phone && password && commercial && national){
-
-alert("تم تسجيل الدخول بنجاح")
-
-sendWhatsApp(phone,commercial,national)
-
-}else{
-
-alert("يرجى إدخال جميع البيانات")
-
-}
-
-}
-
-</script>
-<script>
-function sendWhatsApp(phone,commercial,national){
-
-let message = "عميل جديد%0A" +
-"رقم الهاتف: " + phone + "%0A" +
-"السجل التجاري: " + commercial + "%0A" +
-"الرقم القومي: " + national
-
-window.open("https://wa.me/201000000000?text=" + message)
-
-}
-
-</script>
-01109327472
-.login{
-padding:50px;
-text-align:center;
-
-}
-
-.login input{
-
-display:block;
-margin:10px auto;
-padding:10px;
-width:250px;
-border-radius:5px;
-border:1px solid #ccc;
-
-}
-<script>
-function login(){
-
-let phone = document.getElementById("phone").value
-let password = document.getElementById("password").value
-let commercial = document.getElementById("commercial").value
-let national = document.getElementById("national").value
-
-let client = {
-phone:phone,
-password:password,
-commercial:commercial,
-national:national,
-status:"pending"
-}
-
-localStorage.setItem(phone,JSON.stringify(client))
-
-alert("تم إرسال طلب التسجيل")
-
-sendWhatsApp(phone,commercial,national)
-
-}
-
-</script>
-admin.html
-<h2>طلبات العملاء</h2>
-<div id="clients"></div>
-
-<script>
-
-for(let i=0;i<localStorage.length;i++){
-
-let key = localStorage.key(i)
-let client = JSON.parse(localStorage.getItem(key))
-
-if(client.phone){
-
-document.getElementById("clients").innerHTML +=
-
-`
-
-<div class="card">
-
-<p>رقم الهاتف: ${client.phone}</p>
-<p>السجل التجاري: ${client.commercial}</p>
-
-<button onclick="approve('${client.phone}')">قبول</button>
-
-<button onclick="reject('${client.phone}')">رفض</button>
-
-</div>
-
-`
-
-}
-
-}
-
-</script>
-<script>
-function approve(phone){
-
-let client = JSON.parse(localStorage.getItem(phone))
-
-client.status = "approved"
-
-localStorage.setItem(phone,JSON.stringify(client))
-
-alert("تم قبول العميل")
-
-}
-
-function reject(phone){
-
-localStorage.removeItem(phone)
-
-alert("تم رفض العميل")
-
-}
-
-</script>
-<script>
-function checkUser(){
-
-let phone = document.getElementById("phone").value
-
-let client = JSON.parse(localStorage.getItem(phone))
-
-if(client && client.status=="approved"){
-
-window.location.href="dashboard.html"
-
-}else{
-
-alert("لم يتم قبولك بعد")
-
-}
-
-}
-
-</script>
-<button onclick="login();checkUser()">تسجيل الدخول</button>
-dashboard.html
-<h1>لوحة العميل</h1>
-<p>مرحباً بك في Start Smart</p>
-
-<ul>
-
-<li>احجز خدمة</li>
-<li>التواصل</li>
-<li>الملف الشخصي</li>
-
-</ul>
-<script>
-function sendToCRM(phone,password,commercial,national){
-
-fetch("http://localhost/espocrm/api/v1/Lead",{
-
-method:"POST",
-
-headers:{
-"Content-Type":"application/json",
-"Authorization":"Basic " + btoa("apiuser:123456")
-},
-
-body:JSON.stringify({
-
-firstName:"عميل جديد",
-
-phoneNumber:phone,
-
-description:
-"السجل التجاري: " + commercial +
-" الرقم القومي: " + national
-
-})
-
-})
-
-.then(response=>response.json())
-.then(data=>{
-
-console.log("تم ارسال العميل للـ CRM")
-
-})
-
-}
-
-</script>
-function login(){
-let phone = document.getElementById("phone").value
-let password = document.getElementById("password").value
-let commercial = document.getElementById("commercial").value
-let national = document.getElementById("national").value
-
-sendToCRM(phone,password,commercial,national)
-
-alert("تم إرسال طلب التسجيل")
-
-}
-images/
-style.css
-script.js
-index.html
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
-index.html
-style.css
-/* Start Smart Style */
-script.js
-console.log("Start Smart");
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
-  
-</script>
-</body>
 </html>
